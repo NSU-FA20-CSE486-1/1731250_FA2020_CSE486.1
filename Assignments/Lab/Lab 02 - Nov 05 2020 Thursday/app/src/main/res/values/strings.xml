@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">simplelogin</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="enter_your_username_or_phone_number">Enter Your Username or Phone Number</string>
+    <string name="login">Login</string>
+    <string name="todo">TODO</string>
+</resources>
