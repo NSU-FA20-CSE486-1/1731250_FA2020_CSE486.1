@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_marginTop="00dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Encrypted Message Application"
+        android:gravity="center"
+        android:layout_margin="50dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+
+        />
+
+
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the Phone Number"
+        android:layout_marginBottom="20dp"
+
+        />
+
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type your Message"
+        android:layout_marginBottom="20dp"
+        android:inputType="textMultiLine"
+
+        />
+
+
+    <EditText
+        android:id="@+id/encryptKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter 3 Digit Encryption Code"
+        android:layout_marginBottom="20dp"
+
+
+        />
+
+    <Button
+        android:id="@+id/encryptBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Encrypt"
+        android:layout_marginTop="10dp"
+
+        />
+
+
+
+</LinearLayout>
