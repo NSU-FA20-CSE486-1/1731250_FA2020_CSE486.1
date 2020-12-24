@@ -8,12 +8,12 @@
     android:layout_marginTop="00dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".encryptedPage">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter Message Details"
+        android:text="Confirm Message Details!"
         android:gravity="center"
         android:layout_margin="50dp"
         android:textSize="25sp"
@@ -24,21 +24,18 @@
 
 
     <EditText
-        android:id="@+id/phoneNumber"
+        android:id="@+id/sPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter the Phone Number"
-        android:inputType="number"
         android:layout_marginBottom="20dp"
 
         />
 
 
     <EditText
-        android:id="@+id/message"
+        android:id="@+id/sMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Type your Message"
         android:layout_marginBottom="20dp"
         android:inputType="textMultiLine"
 
@@ -46,21 +43,20 @@
 
 
     <EditText
-        android:id="@+id/encryptKey"
+        android:id="@+id/sEncryptKey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter 3 Digit Encryption Code"
         android:layout_marginBottom="20dp"
 
 
         />
 
     <Button
-        android:id="@+id/encryptBtn"
+        android:id="@+id/sEncryptBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Encrypt"
+        android:text="Proceed"
         android:layout_marginTop="10dp"
 
         />
