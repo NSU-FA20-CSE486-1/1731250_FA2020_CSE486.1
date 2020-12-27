@@ -32,7 +32,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="110dp"
+        android:layout_below="@+id/app_slogan"
+        android:layout_marginTop="20dp"
         android:src="@drawable/applogo"
         />
 
