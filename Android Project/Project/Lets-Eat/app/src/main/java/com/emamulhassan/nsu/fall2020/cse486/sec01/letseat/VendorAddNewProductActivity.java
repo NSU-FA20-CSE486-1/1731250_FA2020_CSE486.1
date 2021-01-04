@@ -93,7 +93,47 @@ public class VendorAddNewProductActivity extends AppCompatActivity {
         startActivityForResult(galleryIntent, GalleryPick);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==GalleryPick  &&  resultCode==RESULT_OK  &&  data!= null)
+        {
+            ImageUri = data.getData();
+            InputProductImage.setImageURI(ImageUri);
+        }
+    }
 
+    private void ValidateProductData()
+    {
+        Description = InputProductDescription.getText().toString();
+        Price = InputProductPrice.getText().toString();
+        Pname = InputProductName.getText().toString();
+
+        if (ImageUri == null)
+        {
+            Toast.makeText(this, "Select Product Image!", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(Pname))
+        {
+            Toast.makeText(this, "Please Enter Product Product Name!", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(Description))
+        {
+            Toast.makeText(this, "Please Enter Product Details!", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(Price))
+        {
+            Toast.makeText(this, "Please Enter Product Price!", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            StoreProductInformation();
+        }
+
+    }
+
+    
 
     }
 
