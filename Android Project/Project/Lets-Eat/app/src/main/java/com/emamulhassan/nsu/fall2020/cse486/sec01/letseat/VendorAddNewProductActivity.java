@@ -133,6 +133,72 @@ public class VendorAddNewProductActivity extends AppCompatActivity {
 
     }
 
+    private void StoreProductInformation()
+    {
+        loadingBar.setTitle("Add New Item");
+        loadingBar.setMessage("Please Wait, While we Add this New Product!");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
+
+        Calendar calendar = Calendar.getInstance();
+
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd MMM, yyyy");
+        saveCurrentDate = currentDate.format(calendar.getTime());
+
+        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+        saveCurrentTime = currentTime.format(calendar.getTime());
+
+        productRandomKey = saveCurrentDate + saveCurrentTime;
+
+        StorageReference filePath = ProductImagesRef.child(ImageUri.getLastPathSegment() + productRandomKey + ".jpg");
+
+        final UploadTask uploadTask = filePath.putFile(ImageUri);
+
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e)
+            {
+                String message = e.toString();
+                Toast.makeText(VendorAddNewProductActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                loadingBar.dismiss();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
+            {
+                Toast.makeText(VendorAddNewProductActivity.this, "Product Image Successfully Uploaded.", Toast.LENGTH_SHORT).show();
+
+                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception
+                    {
+                        if (!task.isSuccessful())
+                        {
+                            throw task.getException();
+                        }
+                        downloadImageUrl = filePath.getDownloadUrl().toString();
+                        return filePath.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            downloadImageUrl = task.getResult().toString();
+
+                            Toast.makeText(VendorAddNewProductActivity.this, "Image URL Generated Successfully.", Toast.LENGTH_SHORT).show();
+
+                            SaveProductInfoToDatabase();
+                        }
+                    }
+                });
+
+            }
+        });
+
+    }
+
     
 
     }
