@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity
     private Button LoginButton;
     private ProgressDialog loadingBar;
     private TextView AdminLink, NotAdminLink;
+    private TextView VendorLogin;
 
     private String parentDbName = "Users";
     private CheckBox chkBoxRememberMe;
@@ -47,6 +48,8 @@ public class LoginActivity extends AppCompatActivity
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
         AdminLink = (TextView) findViewById(R.id.admin_panel_link);
         NotAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
+        VendorLogin = (TextView) findViewById(R.id.customer_login);
+
 
         loadingBar = new ProgressDialog(this);
 
@@ -70,6 +73,7 @@ public class LoginActivity extends AppCompatActivity
                 AdminLink.setVisibility(View.INVISIBLE);
                 NotAdminLink.setVisibility(View.VISIBLE);
                 parentDbName = "Admins";
+                VendorLogin.setText("Vendor Login");
             }
         });
 
@@ -80,6 +84,7 @@ public class LoginActivity extends AppCompatActivity
                 AdminLink.setVisibility(View.VISIBLE);
                 NotAdminLink.setVisibility(View.INVISIBLE);
                 parentDbName = "Users";
+                VendorLogin.setText("Customer Login");
             }
         });
 
