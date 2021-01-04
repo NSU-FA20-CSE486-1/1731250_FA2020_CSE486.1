@@ -115,6 +115,68 @@ public class LoginActivity extends AppCompatActivity
 
 
 
+    private void AllowAccessToAccount(final String phone, final String password)
+    {
+        if(chkBoxRememberMe.isChecked())
+        {
+            Paper.book().write(Prevalent.UserPhoneKey, phone);
+            Paper.book().write(Prevalent.UserPasswordKey, password);
+        }
 
+
+        final DatabaseReference RootRef;
+        RootRef = FirebaseDatabase.getInstance().getReference();
+
+
+        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
+                if (dataSnapshot.child(parentDbName).child(phone).exists())
+                {
+                    Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
+
+                    if (usersData.getPhone().equals(phone))
+                    {
+                        if (usersData.getPassword().equals(password))
+                        {
+                            if (parentDbName.equals("Admins"))
+                            {
+                                Toast.makeText(LoginActivity.this, "Welcome Back, Admin.", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+//                                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+//                                startActivity(intent);
+                            }
+
+                            else if (parentDbName.equals("Users"))
+                            {
+                                Toast.makeText(LoginActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+//                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+//                                Prevalent.currentOnlineUser = usersData;
+//                                startActivity(intent);
+                            }
+                        }
+                        else
+                        {
+                            loadingBar.dismiss();
+                            Toast.makeText(LoginActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                else
+                {
+                    Toast.makeText(LoginActivity.this, "Account with This " + phone + " Number doesn't Exist.", Toast.LENGTH_SHORT).show();
+                    loadingBar.dismiss();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
