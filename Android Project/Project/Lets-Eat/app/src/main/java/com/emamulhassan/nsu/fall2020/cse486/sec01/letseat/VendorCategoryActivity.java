@@ -28,7 +28,43 @@ public class VendorCategoryActivity extends AppCompatActivity {
         DrinksItem = (ImageView) findViewById(R.id.drinks);
 
 
+        BreakfastItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VendorCategoryActivity.this, VendorAddNewProductActivity.class);
+                intent.putExtra("category", "Breakfast Item");
+                startActivity(intent);
+            }
+        });
 
+        LunchItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VendorCategoryActivity.this, VendorAddNewProductActivity.class);
+                intent.putExtra("category", "Lunch Item");
+                startActivity(intent);
+            }
+        });
+
+
+        DessertItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VendorCategoryActivity.this, VendorAddNewProductActivity.class);
+                intent.putExtra("category", "Dessert Item");
+                startActivity(intent);
+            }
+        });
+
+
+        DrinksItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VendorCategoryActivity.this, VendorAddNewProductActivity.class);
+                intent.putExtra("category", "Drinks Item");
+                startActivity(intent);
+            }
+        });
 
 
     }
