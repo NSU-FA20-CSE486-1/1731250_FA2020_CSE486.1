@@ -199,7 +199,38 @@ public class VendorAddNewProductActivity extends AppCompatActivity {
 
     }
 
-    
+    private void SaveProductInfoToDatabase()
+    {
+        HashMap<String, Object> productMap = new HashMap<>();
+        productMap.put("pid", productRandomKey);
+        productMap.put("date", saveCurrentDate);
+        productMap.put("time", saveCurrentTime);
+        productMap.put("category", CategoryName);
+        productMap.put("image", downloadImageUrl);
+        productMap.put("pname", Pname);
+        productMap.put("description", Description);
+        productMap.put("price", Price);
+
+        ProductsRef.child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task)
+            {
+                if (task.isSuccessful())
+                {
+                    Intent intent = new Intent(VendorAddNewProductActivity.this, VendorCategoryActivity.class);
+                    startActivity(intent);
+
+                    loadingBar.dismiss();
+                    Toast.makeText(VendorAddNewProductActivity.this, "Product Added Successfully.", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    loadingBar.dismiss();
+                    String message = task.getException().toString();
+                    Toast.makeText(VendorAddNewProductActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
