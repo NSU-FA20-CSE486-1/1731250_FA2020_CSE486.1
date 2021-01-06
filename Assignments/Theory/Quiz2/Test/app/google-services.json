@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "451490016069",
+    "project_id": "bangladictionary-8dc93",
+    "storage_bucket": "bangladictionary-8dc93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451490016069:android:1a037a60f634ce75c42c2c",
+        "android_client_info": {
+          "package_name": "com.emamulhassan.cse486.fall2020.quiz2.sec01.bangladictionary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451490016069-esk6taoub002jartil0c8cu77lgct2jg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkbHWlJb7Fa3yHUcDuAklbMwX_2bdKPmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451490016069-esk6taoub002jartil0c8cu77lgct2jg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
