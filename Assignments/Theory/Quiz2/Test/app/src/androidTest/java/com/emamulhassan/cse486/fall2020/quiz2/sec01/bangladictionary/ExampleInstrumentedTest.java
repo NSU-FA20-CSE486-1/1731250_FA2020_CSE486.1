@@ -1,4 +1,4 @@
-package com.emamulhassan.nsu.fall2020.cse486.sec01.test;
+package com.emamulhassan.cse486.fall2020.quiz2.sec01.bangladictionary;
 
 import android.content.Context;
 
