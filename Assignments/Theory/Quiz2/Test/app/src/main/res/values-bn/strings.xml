@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">বাংলা অভিধান</string>
+    <string name="eng_word">ইংরেজি শব্দ প্রবেশ করান</string>
+    <string name="ben_word">বাংলা অনুবাদ</string>
+    <string name="save_word">সংরক্ষণ</string>
+    <string name="dictionary">অভিধান</string>
+
+
+</resources>
