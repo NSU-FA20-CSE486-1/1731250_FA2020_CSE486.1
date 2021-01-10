@@ -9,5 +9,16 @@ public class Products
 
     }
 
+    public Products(String pname, String description, String price, String image, String category, String pid, String date, String time) {
+        this.pname = pname;
+        this.description = description;
+        this.price = price;
+        this.image = image;
+        this.category = category;
+        this.pid = pid;
+        this.date = date;
+        this.time = time;
+    }
 
+    
 }
