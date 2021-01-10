@@ -162,7 +162,11 @@ public class HomeActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_logout)
         {
-            
+            Paper.book().destroy();
+            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
