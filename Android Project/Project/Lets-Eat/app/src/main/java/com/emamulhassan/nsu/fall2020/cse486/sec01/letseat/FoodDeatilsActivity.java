@@ -50,6 +50,7 @@ public class FoodDeatilsActivity extends AppCompatActivity {
 
         productID = getIntent().getStringExtra("pid");
 
+        getProductDetails(productID);
 
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,5 +117,29 @@ public class FoodDeatilsActivity extends AppCompatActivity {
 
 
 
+    private void getProductDetails(String productID)
+    {
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
+        productsRef.child(productID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                if (snapshot.exists())
+                {
+                    Products products = snapshot.getValue(Products.class);
+
+                    Picasso.get().load(products.getImage()).into(productImage);
+                    productName.setText(products.getPname());
+                    productDescription.setText(products.getDescription());
+                    productPrice.setText(products.getPrice());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }
