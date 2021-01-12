@@ -65,5 +65,47 @@ public class SettingsActivity extends AppCompatActivity{
 
 
 
-    
+    private void updateOnlyUserInfo()
+    {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        HashMap<String, Object> userMap = new HashMap<>();
+        userMap. put("name", fullNameEditText.getText().toString());
+        userMap. put("address", addressEditText.getText().toString());
+        userMap. put("updatedPhoneNo", userPhoneEditText.getText().toString());
+        ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
+
+        startActivity(new Intent(SettingsActivity.this, MainActivity.class));
+        Toast.makeText(SettingsActivity.this, "Profile Updated Successfully.", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+
+
+    private void userInfoDisplay(final EditText fullNameEditText, final EditText userPhoneEditText, final EditText addressEditText)
+    {
+        DatabaseReference UsersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.getPhone());
+
+        UsersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                if (dataSnapshot.exists())
+                {
+                    String name = dataSnapshot.child("name").getValue().toString();
+                    String phone = dataSnapshot.child("phone").getValue().toString();
+                    String address = dataSnapshot.child("address").getValue().toString();
+
+                    fullNameEditText.setText(name);
+                    userPhoneEditText.setText(phone);
+                    addressEditText.setText(address);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 }
