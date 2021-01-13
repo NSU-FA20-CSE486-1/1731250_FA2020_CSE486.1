@@ -22,10 +22,8 @@ import com.google.firebase.database.ValueEventListener;
 import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
-
     private Button joinNowButton, loginButton, loginButtonVendor;
     private ProgressDialog loadingBar;
-
 
 
     @Override
@@ -36,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         joinNowButton = (Button) findViewById(R.id.main_join_now_btn);
         loginButton = (Button) findViewById(R.id.main_login_btn);
         loginButtonVendor = (Button) findViewById(R.id.main_login_btn_vendor);
+        loadingBar = new ProgressDialog(this);
 
         Paper.init(this);
 
@@ -62,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         String UserPhoneKey = Paper.book().read(Prevalent.UserPhoneKey);
         String UserPasswordKey = Paper.book().read(Prevalent.UserPasswordKey);
 
