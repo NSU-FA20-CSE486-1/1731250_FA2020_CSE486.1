@@ -41,7 +41,7 @@ public class Products
     }
 
     public void setPrice(String price) {
-        this.price = price + " BDT";
+        this.price = price;
     }
 
     public String getImage() {
