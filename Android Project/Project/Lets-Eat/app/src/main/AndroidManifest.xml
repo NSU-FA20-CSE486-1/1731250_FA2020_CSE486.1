@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsEat"
         tools:replace="android:icon,android:theme">
-        <activity android:name=".CartActivity"></activity>
+        <activity android:name=".ConfirmOrderActivity"></activity>
+        <activity android:name=".CartActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".FoodDeatilsActivity" />
         <activity
