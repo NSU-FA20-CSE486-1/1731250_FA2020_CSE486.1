@@ -3,6 +3,7 @@ package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -109,5 +110,23 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                             .child("User View")
                             .child(Prevalent.currentOnlineUser.getPhone())
                             .removeValue()
+                            .addOnCompleteListener(new OnCompleteListener<Void>()
+                            {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful())
+                                    {
+                                        Toast.makeText(ConfirmOrderActivity.this, "your final order has been placed successfully.", Toast.LENGTH_SHORT).show();
+
+                                        Intent intent = new Intent(ConfirmOrderActivity.this, HomeActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+                            });
+                }
+            }
+        });
     }
 }
