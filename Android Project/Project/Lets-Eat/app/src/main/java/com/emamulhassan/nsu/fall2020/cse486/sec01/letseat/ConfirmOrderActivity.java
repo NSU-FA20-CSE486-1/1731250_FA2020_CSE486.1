@@ -33,10 +33,13 @@ public class ConfirmOrderActivity extends AppCompatActivity {
         confirmOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                userInfoCheck();
             }
         });
 
+    }
+
+    private void userInfoCheck() {
 
     }
 }
