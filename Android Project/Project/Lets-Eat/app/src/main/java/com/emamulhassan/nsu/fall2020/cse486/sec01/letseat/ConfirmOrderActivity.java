@@ -3,6 +3,7 @@ package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +41,21 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     }
 
     private void userInfoCheck() {
-
+        if (TextUtils.isEmpty(nameEditText.getText().toString()))
+        {
+            Toast.makeText(this, "Please provide your full name.", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(phoneEditText.getText().toString()))
+        {
+            Toast.makeText(this, "Please provide your phone number.", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(addressEditText.getText().toString()))
+        {
+            Toast.makeText(this, "Please provide your address.", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(cityEditText.getText().toString()))
+        {
+            Toast.makeText(this, "Please provide your city name.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
