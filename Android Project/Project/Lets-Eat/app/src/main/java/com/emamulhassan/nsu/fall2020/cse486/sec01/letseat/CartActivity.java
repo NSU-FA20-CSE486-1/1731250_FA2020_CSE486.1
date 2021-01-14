@@ -55,7 +55,6 @@ public class CartActivity extends AppCompatActivity {
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtTotalAmount.setText("Total Price = " + String.valueOf(overTotalPrice) + " BDT");
 
                 Intent intent = new Intent(CartActivity.this, ConfirmOrderActivity.class);
                 intent.putExtra("Total Price", String.valueOf(overTotalPrice));
@@ -90,6 +89,9 @@ public class CartActivity extends AppCompatActivity {
 
                 int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getQuantity());
                 overTotalPrice = overTotalPrice + oneTyprProductTPrice;
+
+                txtTotalAmount.setText("Total Price = " + String.valueOf(overTotalPrice) + " BDT");
+
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
