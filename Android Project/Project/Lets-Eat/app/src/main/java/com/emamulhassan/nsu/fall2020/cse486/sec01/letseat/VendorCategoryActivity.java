@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class VendorCategoryActivity extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class VendorCategoryActivity extends AppCompatActivity {
     private ImageView LunchItem;
     private ImageView DessertItem;
     private ImageView DrinksItem;
+    private Button VendorLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,17 @@ public class VendorCategoryActivity extends AppCompatActivity {
         DessertItem = (ImageView) findViewById(R.id.dessert);
 
         DrinksItem = (ImageView) findViewById(R.id.drinks);
+
+        VendorLogout = (Button) findViewById(R.id.logout_vendor);
+
+
+        VendorLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VendorCategoryActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         BreakfastItem.setOnClickListener(new View.OnClickListener() {
