@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
-    private Button CreateAccountButton;
+    private Button CreateAccountButton, HaveAccButton;
     private EditText InputName, InputPhoneNumber, InputPassword, InputAddress;
     private ProgressDialog loadingBar;
 
@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         CreateAccountButton = (Button) findViewById(R.id.register_btn);
+        HaveAccButton= (Button) findViewById(R.id.have_account_btn);
         InputName = (EditText) findViewById(R.id.register_username_input);
         InputPassword = (EditText) findViewById(R.id.register_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.register_phone_number_input);
@@ -43,6 +44,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CreateAccount();
+            }
+        });
+
+        HaveAccButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 
