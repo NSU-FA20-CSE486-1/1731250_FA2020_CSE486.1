@@ -27,7 +27,7 @@ import io.paperdb.Paper;
 public class LoginActivity extends AppCompatActivity
 {
     private EditText InputPhoneNumber, InputPassword;
-    private Button LoginButton;
+    private Button LoginButton, SignUpButton;
     private ProgressDialog loadingBar;
     private TextView AdminLink, NotAdminLink;
     private TextView VendorLogin;
@@ -44,18 +44,26 @@ public class LoginActivity extends AppCompatActivity
 
 
         LoginButton = (Button) findViewById(R.id.login_btn);
+        SignUpButton = (Button) findViewById(R.id.dont_have_account);
         InputPassword = (EditText) findViewById(R.id.login_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
         AdminLink = (TextView) findViewById(R.id.admin_panel_link);
         NotAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
         VendorLogin = (TextView) findViewById(R.id.customer_login);
 
-
         loadingBar = new ProgressDialog(this);
 
 
         chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
         Paper.init(this);
+
+        SignUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         LoginButton.setOnClickListener(new View.OnClickListener() {

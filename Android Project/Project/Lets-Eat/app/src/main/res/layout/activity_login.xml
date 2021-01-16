@@ -145,6 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Are you a Vendor?"
+        android:textStyle="bold"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/login_btn"
         android:textColor="#99000000"
