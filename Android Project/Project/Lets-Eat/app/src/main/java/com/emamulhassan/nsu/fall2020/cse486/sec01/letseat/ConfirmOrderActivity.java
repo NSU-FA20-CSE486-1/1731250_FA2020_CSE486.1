@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Prevalent.Prevalent;
@@ -25,6 +26,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
 
     private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
     private Button confirmOrderBtn;
+    private ImageView ButtonBack;
     private String totalAmount = "";
 
 
@@ -38,10 +40,18 @@ public class ConfirmOrderActivity extends AppCompatActivity {
         Toast.makeText(this, "Total Price = " + totalAmount + " BDT", Toast.LENGTH_SHORT).show();
 
         confirmOrderBtn = (Button) findViewById(R.id.confirm_final_order_btn);
+        ButtonBack = (ImageView) findViewById(R.id.back_btn);
         nameEditText = (EditText) findViewById(R.id.shippment_name);
         phoneEditText = (EditText) findViewById(R.id.shippment_phone_number);
         addressEditText = (EditText) findViewById(R.id.shippment_address);
         cityEditText = (EditText) findViewById(R.id.shippment_city);
+
+        ButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConfirmOrderActivity.this, CartActivity.class);
+                startActivity(intent);            }
+        });
 
         confirmOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,7 +126,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful())
                                     {
-                                        Toast.makeText(ConfirmOrderActivity.this, "your final order has been placed successfully.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ConfirmOrderActivity.this, "Your Order has been Placed Successfully.", Toast.LENGTH_SHORT).show();
 
                                         Intent intent = new Intent(ConfirmOrderActivity.this, HomeActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
