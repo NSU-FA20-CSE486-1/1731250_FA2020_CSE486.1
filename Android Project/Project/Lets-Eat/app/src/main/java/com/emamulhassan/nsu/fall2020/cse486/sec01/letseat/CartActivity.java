@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ public class CartActivity extends AppCompatActivity {
 
     private Button NextProcessBtn;
     private TextView txtTotalAmount;
+    private ImageView BackButton;
 
     private int overTotalPrice = 0;
 
@@ -50,7 +52,16 @@ public class CartActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         NextProcessBtn = (Button) findViewById(R.id.next_btn);
+        BackButton = (ImageView) findViewById(R.id.back_btn_2);
+
         txtTotalAmount = (TextView) findViewById(R.id.total_price);
+
+        BackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
