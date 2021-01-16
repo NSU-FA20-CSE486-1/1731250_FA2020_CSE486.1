@@ -11,14 +11,21 @@
         android:id="@+id/rl11"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/purple_500"
+        android:background="@color/teal_700"
         android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/back_btn_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/back_btn"
+            />
 
         <TextView
             android:id="@+id/total_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total Price = "
             android:textStyle="bold"
             android:textColor="@android:color/white"
             android:textSize="20dp"
@@ -27,21 +34,6 @@
             />
 
     </RelativeLayout>
-
-
-    <TextView
-        android:id="@+id/msg1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/purple_500"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:textAlignment="center"
-        android:layout_centerVertical="true"
-        android:text="Congratulations, your order has been placed and will soon be verified."
-        android:textSize="20dp"
-        android:visibility="gone"
-        />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -54,15 +46,11 @@
 
     <Button
         android:id="@+id/next_btn"
-        android:layout_width="120dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/purple_500"
+        android:background="@color/teal_700"
         android:text="Next"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:textStyle="bold"
         android:textColor="@android:color/white"
         android:textSize="20dp"
         />
