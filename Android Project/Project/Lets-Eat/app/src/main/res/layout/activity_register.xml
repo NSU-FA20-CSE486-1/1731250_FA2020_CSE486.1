@@ -48,7 +48,7 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/app_slogan"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/applogo"
         />
 
@@ -57,9 +57,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/input_design"
-        android:padding="20dp"
-        android:layout_marginTop="270dp"
-        android:layout_marginBottom="20dp"
+        android:padding="17dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:hint="Enter Your Username"
@@ -75,8 +75,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_username_input"
         android:background="@drawable/input_design"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
+        android:padding="17dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:hint="Enter Your Phone Number"
@@ -93,8 +93,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_phone_number_input"
         android:background="@drawable/input_design"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
+        android:padding="17dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:hint="Enter a Password"
@@ -110,8 +110,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_password_input"
         android:background="@drawable/input_design"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
+        android:padding="17dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:hint="Enter Your Address"
@@ -127,7 +127,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_address_input"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/buttons"
@@ -138,5 +138,37 @@
         android:textColor="#99000000"
         android:textStyle="bold"
         />
+
+    <TextView
+        android:id="@+id/have_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_btn"
+        android:text="Already Have an Account?"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
+        />
+
+    <Button
+        android:id="@+id/have_account_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/have_account"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/input_design"
+        android:padding="17dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:text="Login!"
+        android:textColor="#99000000"
+        android:textStyle="bold"
+        />
+
 
 </RelativeLayout>
