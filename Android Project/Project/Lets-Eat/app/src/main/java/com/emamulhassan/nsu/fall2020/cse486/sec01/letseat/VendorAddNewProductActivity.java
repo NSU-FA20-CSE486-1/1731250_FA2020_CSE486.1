@@ -35,7 +35,7 @@ public class VendorAddNewProductActivity extends AppCompatActivity {
     private String CategoryName;
     private ImageView InputProductImage;
     private EditText InputProductName, InputProductDescription, InputProductPrice;
-    private Button AddNewProductButton;
+    private Button AddNewProductButton, CancelAdd;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
     private String Pname, Description, Price;
@@ -63,6 +63,7 @@ public class VendorAddNewProductActivity extends AppCompatActivity {
         InputProductDescription = (EditText) findViewById(R.id.product_description);
         InputProductPrice = (EditText) findViewById(R.id.product_price);
         AddNewProductButton = (Button) findViewById(R.id.add_new_product);
+        CancelAdd = findViewById(R.id.cancel_add);
         loadingBar = new ProgressDialog(this);
 
 
@@ -78,6 +79,14 @@ public class VendorAddNewProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ValidateProductData();
+            }
+        });
+
+        CancelAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VendorAddNewProductActivity.this, VendorCategoryActivity.class);
+                startActivity(intent);
             }
         });
 
