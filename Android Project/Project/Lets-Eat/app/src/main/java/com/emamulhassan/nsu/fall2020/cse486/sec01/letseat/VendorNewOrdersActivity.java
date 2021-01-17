@@ -65,9 +65,20 @@ public class VendorNewOrdersActivity extends AppCompatActivity {
                     {
                         holder.userName.setText("Name: " + model.getName());
                         holder.userPhoneNumber.setText("Phone: " + model.getPhone());
-                        holder.userTotalPrice.setText("Total Amount =  BDT" + model.getTotalAmount());
+                        holder.userTotalPrice.setText("Total Amount = " + model.getTotalAmount() + " BDT");
                         holder.userDateTime.setText("Order at: " + model.getDate() + "  " + model.getTime());
-                        holder.userShippingAddress.setText("Shipping Address: " + model.getAddress() + ", " + model.getCity());
+                        holder.userShippingAddress.setText("Delivery Address: " + model.getAddress() + ", " + model.getCity());
+
+                        holder.ShowOrdersBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String uID = getRef(position).getKey();
+
+                                Intent intent = new Intent(VendorNewOrdersActivity.this, VendorUserProductsActivity.class);
+                                intent.putExtra("uid", uID);
+                                startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull
