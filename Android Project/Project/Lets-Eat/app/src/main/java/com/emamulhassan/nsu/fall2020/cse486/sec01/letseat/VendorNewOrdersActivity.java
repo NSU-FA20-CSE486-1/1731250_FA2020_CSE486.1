@@ -1,10 +1,12 @@
 package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ public class VendorNewOrdersActivity extends AppCompatActivity {
     private RecyclerView ordersList;
     private DatabaseReference ordersRef;
     private ImageView BackBtnOrder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +64,7 @@ public class VendorNewOrdersActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<VendorOrders, VendorOrdersViewHolder> adapter =
                 new FirebaseRecyclerAdapter<VendorOrders, VendorOrdersViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull VendorOrdersViewHolder holder, int position, @NonNull VendorOrders model)
+                    protected void onBindViewHolder(@NonNull VendorOrdersViewHolder holder, final  int position, @NonNull final VendorOrders model)
                     {
                         holder.userName.setText("Name: " + model.getName());
                         holder.userPhoneNumber.setText("Phone: " + model.getPhone());
@@ -79,6 +82,39 @@ public class VendorNewOrdersActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
                         });
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view)
+                            {
+                                CharSequence options[] = new CharSequence[]
+                                        {
+                                                "Yes",
+                                                "No"
+                                        };
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(VendorNewOrdersActivity.this);
+                                builder.setTitle("Order in Processing?");
+
+                                builder.setItems(options, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            String uID = getRef(position).getKey();
+
+                                            RemoverOrder(uID);
+                                        }
+                                        else
+                                        {
+                                            finish();
+                                        }
+                                    }
+                                });
+                                builder.show();
+                            }
+                        });
+
                     }
 
                     @NonNull
@@ -109,5 +145,10 @@ public class VendorNewOrdersActivity extends AppCompatActivity {
             userShippingAddress = itemView.findViewById(R.id.order_address_city);
             ShowOrdersBtn = itemView.findViewById(R.id.show_all_products_btn);
         }
+    }
+
+    private void RemoverOrder(String uID)
+    {
+        ordersRef.child(uID).removeValue();
     }
 }
