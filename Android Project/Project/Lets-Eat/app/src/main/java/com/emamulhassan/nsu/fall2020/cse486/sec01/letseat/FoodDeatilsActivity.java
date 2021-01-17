@@ -29,127 +29,173 @@ import java.util.HashMap;
 
 public class FoodDeatilsActivity extends AppCompatActivity {
 
-    private ImageView productImage, BackButton2;
-    private TextView productName, productDescription, productPrice;
-    private ElegantNumberButton numberButton;
-    private Button addToCartButton;
-    private String productID = "";
+        private Button addToCartButton;
+        private ImageView productImage, BackBtn2;
+        private ElegantNumberButton numberButton;
+        private TextView productPrice, productDescription, productName;
+        private String productID = "", state = "Normal";
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_deatils);
+        @Override
+        protected void onCreate(Bundle savedInstanceState)
+        {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_food_deatils);
 
-        productImage = (ImageView) findViewById(R.id.product_image_details);
-        BackButton2 = (ImageView) findViewById(R.id.backBtn2);
-        productName = (TextView) findViewById(R.id.product_name_details);
-        productDescription = (TextView) findViewById(R.id.product_description_details);
-        productPrice = (TextView) findViewById(R.id.product_price_details);
-        numberButton = (ElegantNumberButton) findViewById(R.id.number_btn);
-        addToCartButton = (Button) findViewById(R.id.pd_add_to_cart_button);
+            productID = getIntent().getStringExtra("pid");
 
-        productID = getIntent().getStringExtra("pid");
-
-        getProductDetails(productID);
-
-        BackButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FoodDeatilsActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        addToCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                addingToCartList();
-            }
-        });
-
-    }
+            addToCartButton = (Button) findViewById(R.id.pd_add_to_cart_button);
+            BackBtn2 = (ImageView) findViewById(R.id.backBtn2);
+            numberButton = (ElegantNumberButton) findViewById(R.id.number_btn);
+            productImage = (ImageView) findViewById(R.id.product_image_details);
+            productName = (TextView) findViewById(R.id.product_name_details);
+            productDescription = (TextView) findViewById(R.id.product_description_details);
+            productPrice = (TextView) findViewById(R.id.product_price_details);
 
 
-    private void addingToCartList()
-    {
-        String saveCurrentTime, saveCurrentDate;
+            getProductDetails(productID);
 
-        Calendar calForDate = Calendar.getInstance();
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd MMM, yyyy");
-        saveCurrentDate = currentDate.format(calForDate.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        saveCurrentTime = currentDate.format(calForDate.getTime());
-
-        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
-
-        final HashMap<String, Object> cartMap = new HashMap<>();
-        cartMap.put("pid", productID);
-        cartMap.put("pname", productName.getText().toString());
-        cartMap.put("price", productPrice.getText().toString());
-        cartMap.put("date", saveCurrentDate);
-        cartMap.put("time", saveCurrentTime);
-        cartMap.put("quantity", numberButton.getNumber());
-        cartMap.put("discount", "");
-
-        cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone())
-                .child("Products").child(productID)
-                .updateChildren(cartMap)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task)
-                    {
-                        cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
-                                .child("Products").child(productID)
-                                .updateChildren(cartMap)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task)
-                                    {
-                                        if (task.isSuccessful())
-                                        {
-                                            Toast.makeText(FoodDeatilsActivity.this, "Added to Cart List.", Toast.LENGTH_SHORT).show();
-
-                                            Intent intent = new Intent(FoodDeatilsActivity.this, HomeActivity.class);
-                                            startActivity(intent);
-                                        }
-                                    }
-                                });
-                    }
-                });
-
-
-
-    }
-
-
-
-    private void getProductDetails(String productID)
-    {
-        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
-
-        productsRef.child(productID).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot)
-            {
-                if (snapshot.exists())
-                {
-                    Products products = snapshot.getValue(Products.class);
-
-                    Picasso.get().load(products.getImage()).into(productImage);
-                    productName.setText(products.getPname());
-                    productDescription.setText(products.getDescription());
-                    productPrice.setText(products.getPrice());
+            BackBtn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(FoodDeatilsActivity.this, HomeActivity.class);
+                    startActivity(intent);
                 }
-            }
+            });
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+            addToCartButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view)
+                {
+                    if (state.equals("Order Placed") || state.equals("Order Shipped"))
+                    {
+                        Toast.makeText(FoodDeatilsActivity.this, "you can add purchase more products, once your order is shipped or confirmed.", Toast.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        addingToCartList();
+                    }
+                }
+            });
+        }
+
+
+        @Override
+        protected void onStart()
+        {
+            super.onStart();
+
+            CheckOrderState();
+        }
+
+        private void addingToCartList()
+        {
+            String saveCurrentTime, saveCurrentDate;
+
+            Calendar calForDate = Calendar.getInstance();
+            SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+            saveCurrentDate = currentDate.format(calForDate.getTime());
+
+            SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+            saveCurrentTime = currentDate.format(calForDate.getTime());
+
+            final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+
+            final HashMap<String, Object> cartMap = new HashMap<>();
+            cartMap.put("pid", productID);
+            cartMap.put("pname", productName.getText().toString());
+            cartMap.put("price", productPrice.getText().toString());
+            cartMap.put("date", saveCurrentDate);
+            cartMap.put("time", saveCurrentTime);
+            cartMap.put("quantity", numberButton.getNumber());
+            cartMap.put("discount", "");
+
+            cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone())
+                    .child("Products").child(productID)
+                    .updateChildren(cartMap)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task)
+                        {
+                            if (task.isSuccessful())
+                            {
+                                cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
+                                        .child("Products").child(productID)
+                                        .updateChildren(cartMap)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task)
+                                            {
+                                                if (task.isSuccessful())
+                                                {
+                                                    Toast.makeText(FoodDeatilsActivity.this, "Added to Cart List.", Toast.LENGTH_SHORT).show();
+
+                                                    Intent intent = new Intent(FoodDeatilsActivity.this, HomeActivity.class);
+                                                    startActivity(intent);
+                                                }
+                                            }
+                                        });
+                            }
+                        }
+                    });
+        }
+
+
+        private void getProductDetails(String productID)
+        {
+            DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
+            productsRef.child(productID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot)
+                {
+                    if (dataSnapshot.exists())
+                    {
+                        Products products = dataSnapshot.getValue(Products.class);
+
+                        productName.setText(products.getPname());
+                        productPrice.setText(products.getPrice());
+                        productDescription.setText(products.getDescription());
+                        Picasso.get().load(products.getImage()).into(productImage);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+        private void CheckOrderState()
+        {
+            DatabaseReference ordersRef;
+            ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentOnlineUser.getPhone());
+
+            ordersRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot)
+                {
+                    if (dataSnapshot.exists())
+                    {
+                        String shippingState = dataSnapshot.child("state").getValue().toString();
+
+                        if (shippingState.equals("shipped"))
+                        {
+                            state = "Order Shipped";
+                        }
+                        else if(shippingState.equals("not shipped"))
+                        {
+                            state = "Order Placed";
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
-}
