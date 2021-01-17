@@ -29,7 +29,7 @@ import java.util.HashMap;
 
 public class FoodDeatilsActivity extends AppCompatActivity {
 
-    private ImageView productImage;
+    private ImageView productImage, BackButton2;
     private TextView productName, productDescription, productPrice;
     private ElegantNumberButton numberButton;
     private Button addToCartButton;
@@ -42,6 +42,7 @@ public class FoodDeatilsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_deatils);
 
         productImage = (ImageView) findViewById(R.id.product_image_details);
+        BackButton2 = (ImageView) findViewById(R.id.backBtn2);
         productName = (TextView) findViewById(R.id.product_name_details);
         productDescription = (TextView) findViewById(R.id.product_description_details);
         productPrice = (TextView) findViewById(R.id.product_price_details);
@@ -52,6 +53,14 @@ public class FoodDeatilsActivity extends AppCompatActivity {
 
         getProductDetails(productID);
 
+        BackButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FoodDeatilsActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -61,6 +70,7 @@ public class FoodDeatilsActivity extends AppCompatActivity {
         });
 
     }
+
 
     private void addingToCartList()
     {

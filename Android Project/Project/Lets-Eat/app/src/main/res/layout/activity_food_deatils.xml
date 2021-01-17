@@ -8,19 +8,19 @@
     tools:context=".FoodDeatilsActivity">
 
     <ImageView
-        android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/back_btn"
-        android:padding="10dp"
-        app:tint="@color/teal_700" />
-
-    <ImageView
         android:id="@+id/product_image_details"
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:scaleType="centerCrop"
         />
+
+    <ImageView
+        android:id="@+id/backBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_btn"
+        android:padding="10dp"
+        app:tint="@color/teal_700" />
 
     <TextView
         android:id="@+id/product_name_details"
@@ -48,18 +48,39 @@
         android:layout_marginTop="20dp"
         />
 
-    <TextView
-        android:id="@+id/product_price_details"
+    <LinearLayout
+        android:id="@+id/product_price2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/product_description_details"
-        android:text="Item Price"
-        android:textColor="#99000000"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:orientation="horizontal"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        />
+        android:layout_below="@+id/product_description_details"
+        >
+
+        <TextView
+            android:id="@+id/product_price_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Item Price"
+            android:textColor="#99000000"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:id="@+id/textbdt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#99000000"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="BDT"
+            android:layout_marginLeft="5dp"/>
+
+
+    </LinearLayout>
 
 
     <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
@@ -72,7 +93,7 @@
         app:finalNumber="99"
         app:backGroundColor="@color/teal_700"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/product_price_details"
+        android:layout_below="@+id/product_price2"
         android:layout_marginTop="20dp"
         >
     </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
