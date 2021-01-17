@@ -196,10 +196,10 @@ public class CartActivity extends AppCompatActivity {
                         recyclerView.setVisibility(View.GONE);
 
                         txtMsg1.setVisibility(View.VISIBLE);
-                        txtMsg1.setText("Congratulations, your final order has been Shipped successfully. Soon you will received your order at your door step.");
+                        txtMsg1.setText("Your Food Order is on Pending. Please wait till it gets Verified by the Vendor!");
                         NextProcessBtn.setVisibility(View.GONE);
 
-                        Toast.makeText(CartActivity.this, "you can purchase more products, once you received your first final order.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CartActivity.this, "You will be able to Order Again from this Vendor once your order is Completed.", Toast.LENGTH_SHORT).show();
                     }
                     else if(shippingState.equals("not shipped"))
                     {
@@ -209,7 +209,7 @@ public class CartActivity extends AppCompatActivity {
                         txtMsg1.setVisibility(View.VISIBLE);
                         NextProcessBtn.setVisibility(View.GONE);
 
-                        Toast.makeText(CartActivity.this, "you can purchase more products, once you received your first final order.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CartActivity.this, "You will be able to Order Again from this Vendor once your order is Completed.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
