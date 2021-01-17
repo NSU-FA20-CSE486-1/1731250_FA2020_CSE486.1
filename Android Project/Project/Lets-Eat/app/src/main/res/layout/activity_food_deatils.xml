@@ -30,6 +30,7 @@
         android:text="Item Name"
         android:textColor="#99000000"
         android:textStyle="bold"
+        android:padding="5dp"
         android:textSize="20sp"
         android:gravity="center"
         android:layout_marginTop="20dp"
@@ -42,6 +43,7 @@
         android:layout_below="@+id/product_name_details"
         android:text="Item Description"
         android:textColor="#99000000"
+        android:padding="5dp"
         android:textStyle="bold"
         android:textSize="18sp"
         android:gravity="center"
@@ -52,6 +54,7 @@
         android:id="@+id/product_price2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_marginTop="20dp"
@@ -64,6 +67,7 @@
             android:layout_height="wrap_content"
             android:text="Item Price"
             android:textColor="#99000000"
+            android:padding="5dp"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_centerHorizontal="true"
@@ -77,7 +81,7 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:text="BDT"
-            android:layout_marginLeft="5dp"/>
+            />
 
 
     </LinearLayout>
