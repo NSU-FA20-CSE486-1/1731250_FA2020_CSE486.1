@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsEat"
         tools:replace="android:icon,android:theme">
-        <activity android:name=".VendorUserProductsActivity"></activity>
+        <activity android:name=".SearchItemsActivity"></activity>
+        <activity android:name=".VendorUserProductsActivity" />
         <activity android:name=".VendorNewOrdersActivity" />
         <activity android:name=".ConfirmOrderActivity" />
         <activity android:name=".CartActivity" />
