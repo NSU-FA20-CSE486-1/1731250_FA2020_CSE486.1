@@ -3,18 +3,24 @@ package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
 
 public class VendorEditItemsActivity extends AppCompatActivity
 {
@@ -53,7 +59,45 @@ public class VendorEditItemsActivity extends AppCompatActivity
 
     private void updateInfoDetails()
     {
-        
+        String pName = name.getText().toString();
+        String pPrice = price.getText().toString();
+        String pDescription = description.getText().toString();
+
+        if (pName.equals(""))
+        {
+            Toast.makeText(this, "Please Write Item Name!", Toast.LENGTH_SHORT).show();
+        }
+        else if (pPrice.equals(""))
+        {
+            Toast.makeText(this, "Please Write Item Description!", Toast.LENGTH_SHORT).show();
+        }
+        else if (pDescription.equals(""))
+        {
+            Toast.makeText(this, "Please Write Item Price!", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            HashMap<String, Object> productMap = new HashMap<>();
+            productMap.put("pid", productID);
+            productMap.put("description", pDescription);
+            productMap.put("price", pPrice);
+            productMap.put("pname", pName);
+
+            productsRef.updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task)
+                {
+                    if (task.isSuccessful())
+                    {
+                        Toast.makeText(VendorEditItemsActivity.this, "Item Details Updated Successfully.", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(VendorEditItemsActivity.this, VendorCategoryActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            });
+        }
     }
 
     private void displayEachItemInfo()
