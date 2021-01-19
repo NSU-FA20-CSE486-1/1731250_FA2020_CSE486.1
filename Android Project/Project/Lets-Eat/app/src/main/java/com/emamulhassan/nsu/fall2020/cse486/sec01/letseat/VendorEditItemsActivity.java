@@ -66,7 +66,17 @@ public class VendorEditItemsActivity extends AppCompatActivity
 
     private void deleteItem()
     {
-        
+        productsRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task)
+            {
+                Intent intent = new Intent(VendorEditItemsActivity.this, VendorCategoryActivity.class);
+                startActivity(intent);
+                finish();
+
+                Toast.makeText(VendorEditItemsActivity.this, "Item deleted successfully.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void updateInfoDetails()
