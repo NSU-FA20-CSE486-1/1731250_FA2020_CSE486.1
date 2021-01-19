@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.HomeActivity;
-import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.MainActivity;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Customer.HomeActivity;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Customer.MainActivity;
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.R;
 
 public class VendorCategoryActivity extends AppCompatActivity {

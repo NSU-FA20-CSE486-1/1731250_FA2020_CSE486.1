@@ -1,4 +1,4 @@
-package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
+package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Customer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Prevalent.Prevalent;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;

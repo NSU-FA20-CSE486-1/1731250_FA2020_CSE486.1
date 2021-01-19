@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Customer.MainActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     /**

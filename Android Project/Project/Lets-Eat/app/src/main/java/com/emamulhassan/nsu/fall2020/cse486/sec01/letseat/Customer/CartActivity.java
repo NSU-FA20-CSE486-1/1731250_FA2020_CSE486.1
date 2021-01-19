@@ -1,4 +1,4 @@
-package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
+package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Customer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Model.Cart;
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Prevalent.Prevalent;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.R;
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.ViewHolder.CartViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

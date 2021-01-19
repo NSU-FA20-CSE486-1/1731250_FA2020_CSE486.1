@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/welcome"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Customer.MainActivity">
 
 
     <TextView

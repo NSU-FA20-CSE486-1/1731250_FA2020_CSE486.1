@@ -1,4 +1,4 @@
-package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
+package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Customer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Model.Products;
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Prevalent.Prevalent;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.R;
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Vendor.VendorCategoryActivity;
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Vendor.VendorEditItemsActivity;
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.ViewHolder.ProductViewHolder;

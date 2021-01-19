@@ -12,22 +12,22 @@
         android:theme="@style/Theme.LetsEat"
         tools:replace="android:icon,android:theme">
         <activity android:name=".Vendor.VendorEditItemsActivity"></activity>
-        <activity android:name=".SearchItemsActivity" />
+        <activity android:name=".Customer.SearchItemsActivity" />
         <activity android:name=".Vendor.VendorUserProductsActivity" />
         <activity android:name=".Vendor.VendorNewOrdersActivity" />
-        <activity android:name=".ConfirmOrderActivity" />
-        <activity android:name=".CartActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".FoodDeatilsActivity" />
+        <activity android:name=".Customer.ConfirmOrderActivity" />
+        <activity android:name=".Customer.CartActivity" />
+        <activity android:name=".Customer.SettingsActivity" />
+        <activity android:name=".Customer.FoodDeatilsActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Customer.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.LetsEat.NoActionBar" />
         <activity android:name=".Vendor.VendorAddNewProductActivity" />
         <activity android:name=".Vendor.VendorCategoryActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Customer.RegisterActivity" />
+        <activity android:name=".Customer.LoginActivity" />
+        <activity android:name=".Customer.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
