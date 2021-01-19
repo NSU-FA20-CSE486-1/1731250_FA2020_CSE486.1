@@ -55,6 +55,18 @@ public class VendorEditItemsActivity extends AppCompatActivity
             }
         });
 
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItem();
+            }
+        });
+
+    }
+
+    private void deleteItem()
+    {
+        
     }
 
     private void updateInfoDetails()
