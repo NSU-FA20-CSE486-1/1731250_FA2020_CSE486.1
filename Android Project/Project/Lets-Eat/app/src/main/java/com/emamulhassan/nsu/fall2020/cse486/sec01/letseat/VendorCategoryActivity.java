@@ -14,7 +14,7 @@ public class VendorCategoryActivity extends AppCompatActivity {
     private ImageView LunchItem;
     private ImageView DessertItem;
     private ImageView DrinksItem;
-    private Button VendorLogout , CheckOrdersBtn;
+    private Button VendorLogout , CheckOrdersBtn, maintainProductsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +31,23 @@ public class VendorCategoryActivity extends AppCompatActivity {
 
         VendorLogout = (Button) findViewById(R.id.logout_vendor);
         CheckOrdersBtn = (Button) findViewById(R.id.check_orders_btn);
+        maintainProductsBtn = (Button) findViewById(R.id.maintain_btn);
+
 
         CheckOrdersBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(VendorCategoryActivity.this, VendorNewOrdersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        maintainProductsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(VendorCategoryActivity.this, HomeActivity.class);
+                intent.putExtra("Admin", "Admin");
                 startActivity(intent);
             }
         });
