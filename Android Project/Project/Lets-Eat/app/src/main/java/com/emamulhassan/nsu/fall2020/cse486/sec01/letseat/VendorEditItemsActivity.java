@@ -7,11 +7,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class VendorEditItemsActivity extends AppCompatActivity
 {
     private Button applyChangesBtn, deleteBtn;
     private EditText name, price, description;
     private ImageView imageView;
+
+    private String productID = "";
+    private DatabaseReference productsRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +30,16 @@ public class VendorEditItemsActivity extends AppCompatActivity
         description = findViewById(R.id.product_description_maintain);
         imageView = findViewById(R.id.product_image_maintain);
         deleteBtn = findViewById(R.id.delete_product_btn);
+
+        productID = getIntent().getStringExtra("pid");
+        productsRef = FirebaseDatabase.getInstance().getReference().child("Products").child(productID);
+
+        displayEachItemInfo();
+
+    }
+
+    private void displayEachItemInfo()
+    {
+        
     }
 }
