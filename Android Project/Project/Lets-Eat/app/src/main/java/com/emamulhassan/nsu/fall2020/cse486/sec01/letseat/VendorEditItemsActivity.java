@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -41,6 +42,18 @@ public class VendorEditItemsActivity extends AppCompatActivity
 
         displayEachItemInfo();
 
+        applyChangesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateInfoDetails();
+            }
+        });
+
+    }
+
+    private void updateInfoDetails()
+    {
+        
     }
 
     private void displayEachItemInfo()
