@@ -21,7 +21,6 @@
             android:layout_height="200dp"
             android:layout_below="@+id/product_name"
             android:scaleType="centerCrop"
-            android:layout_marginTop="2dp"
             />
 
         <EditText
@@ -31,10 +30,11 @@
             android:layout_below="@+id/product_image_maintain"
             android:hint="Product Name"
             android:textAlignment="center"
-            android:textSize="18dp"
-            android:padding="12dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/input_design"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_design_2"
             android:textColor="#99000000"
             />
 
@@ -44,12 +44,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_name_maintain"
             android:hint="Product Description"
-            android:layout_marginTop="2dp"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:textSize="16dp"
-            android:padding="12dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/input_design"
+            android:textSize="18dp"
+            android:background="@drawable/input_design_2"
             android:textColor="#99000000"
             />
 
@@ -59,11 +59,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_description_maintain"
             android:hint="Product Price"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:textSize="18dp"
-            android:padding="12dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/input_design"
+            android:textSize="20dp"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_design_2"
             android:textColor="#99000000"
             />
 
@@ -74,11 +75,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_price_maintain"
             android:text="Apply Changes"
-            android:layout_marginTop="2dp"
             android:textAlignment="center"
             android:textSize="18dp"
-            android:padding="12dp"
-            android:layout_margin="25dp"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/buttons_2"
             android:textColor="@android:color/white"
             />
@@ -93,7 +93,8 @@
             android:text="Delete Item"
             android:textAlignment="center"
             android:textSize="18dp"
-            android:padding="12dp"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/buttons_2"
             android:textColor="@android:color/white"
