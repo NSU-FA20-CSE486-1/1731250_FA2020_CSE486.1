@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/welcome"
-    tools:context=".VendorCategoryActivity">
+    tools:context=".Vendor.VendorCategoryActivity">
 
     <TextView
         android:id="@+id/vendor_name"

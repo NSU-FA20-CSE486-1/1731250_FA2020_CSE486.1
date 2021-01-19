@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Model.Users;
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Prevalent.Prevalent;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Vendor.VendorCategoryActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

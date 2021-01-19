@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsEat"
         tools:replace="android:icon,android:theme">
-        <activity android:name=".VendorEditItemsActivity"></activity>
+        <activity android:name=".Vendor.VendorEditItemsActivity"></activity>
         <activity android:name=".SearchItemsActivity" />
-        <activity android:name=".VendorUserProductsActivity" />
-        <activity android:name=".VendorNewOrdersActivity" />
+        <activity android:name=".Vendor.VendorUserProductsActivity" />
+        <activity android:name=".Vendor.VendorNewOrdersActivity" />
         <activity android:name=".ConfirmOrderActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".SettingsActivity" />
@@ -23,8 +23,8 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.LetsEat.NoActionBar" />
-        <activity android:name=".VendorAddNewProductActivity" />
-        <activity android:name=".VendorCategoryActivity" />
+        <activity android:name=".Vendor.VendorAddNewProductActivity" />
+        <activity android:name=".Vendor.VendorCategoryActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

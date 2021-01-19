@@ -1,4 +1,4 @@
-package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
+package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Vendor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Model.VendorOrders;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;

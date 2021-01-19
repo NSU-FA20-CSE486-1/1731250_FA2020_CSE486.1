@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/welcome"
-    tools:context=".VendorAddNewProductActivity">
+    tools:context=".Vendor.VendorAddNewProductActivity">
 
     <ImageView
         android:id="@+id/select_product_image"

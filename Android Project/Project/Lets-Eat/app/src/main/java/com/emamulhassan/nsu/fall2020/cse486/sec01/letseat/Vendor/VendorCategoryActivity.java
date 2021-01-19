@@ -1,4 +1,4 @@
-package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat;
+package com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.Vendor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.HomeActivity;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.MainActivity;
+import com.emamulhassan.nsu.fall2020.cse486.sec01.letseat.R;
 
 public class VendorCategoryActivity extends AppCompatActivity {
 
