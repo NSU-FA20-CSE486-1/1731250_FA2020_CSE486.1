@@ -146,9 +146,7 @@ Figure 8.0
 
 
 
-<p>All informations are taken from–
-
-	<a href="https://firebase.google.com/docs/database">Firebase Docs</a>
+<p>All informations are taken from– "https://firebase.google.com/docs/database"
 
   </p><br><br>
 
